@@ -1,10 +1,10 @@
 let allProducts = [
-    { id: 1, title: 'Angels Share By Kilian', price: 12.93, img: 'Images/Angels Share.webp' ,count:0 , offer: false ,special:false, soldOut:false},
-    { id: 2, title: 'Mon Paris Eau de Parfum', price: 21, img: 'Images/ysl p.webp' ,count:0, offer: false ,special:true, soldOut:false},
-    { id: 3, title: 'La Belle Eau de Parfum', price: 33, img: 'Images/je.webp' ,count:0, offer: 23 ,special:false, soldOut:false},
-    { id: 4, title: 'Donna Born in Roma', price: 41.98, img: 'Images/valentino.webp' ,count:0, offer: false ,special:false, soldOut:false},
-    { id: 5, title: 'Alien Goddess by Mugler', price: 98, img: 'Images/Mugler.webp' ,count:0, offer: false ,special:false, soldOut:false},
-    { id: 6, title: 'Yves Saint Laurent Libre', price: 65.33, img: 'Images/ysl.webp' ,count:0, offer: false ,special:false, soldOut:true},
+    { id: 1, title: 'Angels Share By Kilian', price: 275.00 , img: 'Images/Angels Share.webp' ,count:0 , special:false, soldOut:false},
+    { id: 2, title: 'Mon Paris Eau de Parfum', price: 145.25 , img: 'Images/ysl p.webp' ,count:0 , special:true, soldOut:false},
+    { id: 3, title: 'La Belle Eau de Parfum', price: 99.95 , img: 'Images/je.webp' ,count:0, offer: 79.25 , special:false, soldOut:false},
+    { id: 4, title: 'Donna Born in Roma', price: 121.70, img: 'Images/valentino.webp' ,count:0 , special:false, soldOut:false},
+    { id: 5, title: 'Alien Goddess by Mugler', price: 150.00 , img: 'Images/Mugler.webp' ,count:0, special:false, soldOut:false},
+    { id: 6, title: 'Yves Saint Laurent Libre', price: 165.00, img: 'Images/ysl.webp' ,count:0 ,special:false, soldOut:true},
 ]
 let userCart = []
 let deletedItem
@@ -17,7 +17,7 @@ let totalPrice = $.querySelector('.cart-total-price')
 window.addEventListener('load',function(){
     if(JSON.parse(this.localStorage.getItem('shoppingCart'))){
         userCart = JSON.parse(this.localStorage.getItem('shoppingCart'))
-        console.log(userCart);
+        
         showCart()
     }
     showProducts()
@@ -74,7 +74,7 @@ function showProducts(){
         productMinusBtn.setAttribute('value','-')
         productMinusBtn.addEventListener('click', function(event){
             event.target.nextSibling.value --
-            console.log(event.target.nextSibling.value);
+            
             let item = event.target.parentElement.parentElement.parentElement.firstChild.innerHTML
             let selectedItem = allProducts.find(function(product){
                 return product.title === item
@@ -257,5 +257,3 @@ function changeItemQuantity(item,quantity){
     calculatePrice()
     showProducts()
 }
-
-console.log(userCart);
